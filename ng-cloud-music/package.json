@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:single-spa:ng-cloud-music": "ng build ng-cloud-music --configuration production",
+    "serve:single-spa:ng-cloud-music": "ng s --project ng-cloud-music --disable-host-check --port 4201 --live-reload false"
   },
   "private": true,
   "dependencies": {
@@ -19,10 +21,13 @@
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
     "rxjs": "~7.5.0",
+    "single-spa": ">=4.0.0",
+    "single-spa-angular": "^6.1.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^13.1.0",
     "@angular-devkit/build-angular": "^15.0.1",
     "@angular/cli": "~15.0.1",
     "@angular/compiler-cli": "^15.0.0",
@@ -33,6 +38,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "style-loader": "^3.3.1",
     "typescript": "~4.8.2"
   }
 }
