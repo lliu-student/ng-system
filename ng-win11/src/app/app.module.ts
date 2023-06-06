@@ -10,19 +10,25 @@ import zh from '@angular/common/locales/zh';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuComponent } from './modules/components/menu/menu.component';
+import { LockScreenComponent } from './modules/components/lock-screen/lock-screen.component';
+import { CommonUIModule } from './modules/common-ui/common-ui.module';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    LockScreenComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonUIModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN }

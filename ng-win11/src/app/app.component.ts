@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-win11';
+  isLocked = true;
+
+  constructor() {
+    this.isLocked = localStorage.getItem('isLocked') !== 'false';
+  }
+
+  isLockedChange() {
+    this.isLocked = false;
+    localStorage.setItem('isLocked', 'false');
+  }
 }

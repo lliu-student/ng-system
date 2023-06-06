@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+img[data-invert="true"],
+svg[data-invert="true"],
+i[data-invert="true"] {
+  filter: invert(1);
+}
+
+.invert {
+  filter: invert(1) !important;
+}
+
+img[data-rounded="true"],
+svg[data-rounded="true"],
+i[data-rounded="true"] {
+  border-radius: 1000px;
+}
+
+img[data-flip="true"],
+svg[data-flip="true"],
+i[data-flip="true"] {
+  transform: scale(-1, 1);
+}
+
+.uicon img {
+  transform-origin: center;
+  transition: 400ms ease-in-out;
+}
+
+.uicon img[data-click="true"]:active {
+  transform: scale(0.7);
+  transition: 100ms ease-in-out;
+}
+
+.uicon[data-pr="true"]:active img {
+  transform: scale(0.7);
+  transition: 100ms ease-in-out;
+}
+
+.prtclk * {
+  pointer-events: none;
+}
+
+*[data-prtclk="true"] {
+  pointer-events: none !important;
+}

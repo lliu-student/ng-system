@@ -1,0 +1,99 @@
+.lock-screen {
+  background-image: url("/assets/images/wallpaper/background-lock.jpg");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  transition: all 1s ease-in-out;
+  flex-direction: column;
+}
+
+.lock-screen:after {
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+  transition: all 0.2s ease-in-out;
+}
+
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(0);
+  transition: all 200ms ease-in-out;
+
+  &[data-faded="true"] {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-200px);
+  }
+}
+
+.fadein-screen {
+  position: absolute;
+  top: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 400ms ease-in-out;
+  pointer-events: none;
+
+  &[data-faded="false"] {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0px);
+  }
+
+  &[data-unlock="true"] {
+    opacity: 0;
+  }
+
+  .signInBtn {
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 13px;
+    padding: 4px 36px 6px;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 4px;
+
+    &:hover {
+      border: 2px solid rgba(255, 255, 255, 0.33);
+    }
+
+    &:active {
+      border: 2px solid transparent;
+      background: rgba(255, 255, 255, 0.33);
+    }
+  }
+}
+
+.bottom {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+
+  .task-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 24px;
+
+    .battery {
+      display: flex;
+      position: relative;
+
+      .charger svg {
+        position: absolute;
+        z-index: 1;
+      }
+
+      .bt-full {
+        overflow: hidden;
+        position: absolute;
+        z-index: 0;
+      }
+    }
+  }
+}
