@@ -1,5 +1,5 @@
-<div class="lock-screen flex">
-  <div class="splash-screen mt-40" data-faded="true">
+<div class="lock-screen" data-unlock="false" data-action="splash" [attr.data-blur]="data.blur" (click)="toSignIn()">
+  <div class="splash-screen mt-40" [attr.data-faded]="data.faded">
     <div class="text-6xl font-semibold text-gray-100">
       {{ currentDateTime | date : "h:mm a" }}
     </div>
@@ -7,7 +7,7 @@
       {{ currentDateTime | date : "yyyy-MM-dd" | customDate }}
     </div>
   </div>
-  <div class="fadein-screen" data-faded="false" data-unlock="false">
+  <div class="fadein-screen" [attr.data-faded]="!data.faded" data-unlock="false">
     <div
       class="image-cont prtclk rounded-full overflow-hidden"
       data-back="false"
@@ -15,7 +15,7 @@
       <img width="200" data-free="false" src="assets/images/asset/prof.jpg" alt="" />
     </div>
     <div class="mt-2 text-2xl font-medium text-gray-200">Blue Edge</div>
-    <div class="flex items-center mt-6 sign-in-btn">Sign in</div>
+    <div class="flex items-center mt-6 sign-in-btn" (click)="signIn()">Sign in</div>
   </div>
   <div class="bottom flex">
     <div class="uicon mx-2">

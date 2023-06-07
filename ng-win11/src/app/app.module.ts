@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './modules/components/menu/menu.component';
 import { LockScreenComponent } from './modules/components/lock-screen/lock-screen.component';
 import { CommonUIModule } from './modules/common-ui/common-ui.module';
+import { TaskbarComponent } from './modules/components/taskbar/taskbar.component';
 
 registerLocaleData(zh);
 
@@ -21,6 +22,7 @@ registerLocaleData(zh);
     AppComponent,
     MenuComponent,
     LockScreenComponent,
+    TaskbarComponent,
   ],
   imports: [
     BrowserModule,
