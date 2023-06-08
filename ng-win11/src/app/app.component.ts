@@ -15,6 +15,6 @@ export class AppComponent {
 
   isLockedChange() {
     this.isLocked = false;
-    localStorage.setItem('isLocked', 'false');
+    // localStorage.setItem('isLocked', 'false');
   }
 }
