@@ -1,0 +1,19 @@
+<div
+  class="popup"
+  [ngStyle]="{
+    width: config.width + 'px',
+    height: config.height + 'px',
+    left: config.left + 'px',
+    top: config.top + 'px'
+  }"
+>
+  <div class="popup-header" (mousedown)="onMouseDown($event)">
+    <div class="popup-title">{{ config.title }}</div>
+    <div class="popup-min" (click)="onMin()"></div>
+    <div class="popup-max" (click)="onMax()"></div>
+    <div class="popup-close" (click)="onClose()"></div>
+  </div>
+  <div class="popup-body">
+    <ng-content></ng-content>
+  </div>
+</div>
