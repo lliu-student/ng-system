@@ -1,0 +1,48 @@
+<nz-table
+  #basicTable
+  [nzData]="data"
+  [nzFrontPagination]="model.isFrontPagination"
+  [nzTotal]="model.total"
+  [(nzPageIndex)]="model.pager.pageIndex"
+  [(nzPageSize)]="model.pager.pageSize"
+  [nzShowPagination]="model.isShowPagination"
+  [nzPaginationPosition]="model.paginationPosition"
+  [nzPaginationType]="model.paginationType"
+  [nzBordered]="model.isBordered"
+  [nzOuterBordered]="model.isOuterBordered"
+  [nzWidthConfig]="model.widthConfig"
+  [nzSize]="model.size"
+  [nzLoading]="model.isLoading"
+  [nzLoadingIndicator]="model.loadingIndicator"
+  [nzLoadingDelay]="model.loadingDelay"
+  [nzScroll]="model.scroll"
+  [nzTitle]="model.title"
+  [nzFooter]="model.footer"
+  [nzNoResult]="model.noResult"
+  [nzPageSizeOptions]="model.pageSizeOptions"
+  [nzShowQuickJumper]="model.isShowQuickJumper"
+  [nzShowSizeChanger]="model.isShowSizeChanger"
+  [nzHideOnSinglePage]="model.isHideOnSinglePage"
+  [nzSimple]="model.isSimple"
+  [nzTemplateMode]="model.isTemplateMode"
+  [nzVirtualItemSize]="model.virtualItemSize"
+  [nzVirtualMaxBufferPx]="model.virtualMaxBufferPx"
+  [nzVirtualMinBufferPx]="model.virtualMinBufferPx"
+  (nzPageIndexChange)="pageIndexChange($event)"
+  (nzPageSizeChange)="pageSizeChange($event)"
+  (nzCurrentPageDataChange)="currentPageDataChange($event)"
+  (nzQueryParams)="queryParamsChange($event)"
+>
+  <thead>
+    <tr>
+      <th *ngFor="let header of headers">{{ header }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td *ngFor="let header of headers">
+        {{ data[header] }}
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
