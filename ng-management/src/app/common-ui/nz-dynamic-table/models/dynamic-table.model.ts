@@ -4,6 +4,8 @@ import {
   NzTablePaginationType,
   NzTableSize,
 } from 'ng-zorro-antd/table/src/table.types';
+import { PagerModel } from './pager.model';
+import { DynamicDataModel } from './dynamic-data.model';
 
 /**
  * 动态表格模型
@@ -40,10 +42,10 @@ import {
  * @property {number} virtualItemSize 虚拟滚动时每个数据项的高度，单位 px
  * @property {number} virtualMaxBufferPx 虚拟滚动时最大缓冲区大小，单位 px
  * @property {number} virtualMinBufferPx 虚拟滚动时最小缓冲区大小，单位 px
- * @property {TrackByFunction<DataModel>} virtualForTrackBy 虚拟滚动时用于跟踪的函数
+ * @property {TrackByFunction<DynamicDataModel>} virtualForTrackBy 虚拟滚动时用于跟踪的函数
  */
 export class DynamicTableModel<T> {
-  data: DataModel[] = [];
+  data: DynamicDataModel<T>[] = [];
   isFrontPagination = true;
   total = 0;
   pager = new PagerModel();
@@ -81,9 +83,5 @@ export class DynamicTableModel<T> {
   // virtualForTrackBy?:TrackByFunction<DataModel>;
 }
 
-export class PagerModel {
-  pageIndex = 0;
-  pageSize = 0;
-}
 
 export class DataModel {}

@@ -35,13 +35,32 @@
 >
   <thead>
     <tr>
-      <th *ngFor="let header of headers">{{ header }}</th>
+      <th
+        *ngFor="let header of headers"
+        [nzShowCheckbox]="header.isShowCheckbox"
+        [nzDisabled]="header.isDisabled"
+        [nzIndeterminate]="header.isIndeterminate"
+        [nzChecked]="header.isChecked"
+        (nzCheckedChange)="headerCheckedChange($event, header)"
+        [nzShowRowSelection]="header.isShowRowSelection"
+        [nzSelections]="header.selections"
+        [nzWidth]="header.width"
+        [nzLeft]="header.left"
+        [nzRight]="header.right"
+        [nzAlign]="header.align"
+        [nzBreakWord]="header.isBreakWord"
+        [nzEllipsis]="header.isEllipsis"
+        [colSpan]="header.colSpan"
+        [rowSpan]="header.rowSpan"
+      >
+        {{ header }}
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td *ngFor="let header of headers">
-        {{ data[header] }}
+        {{ data[header.title] }}
       </td>
     </tr>
   </tbody>

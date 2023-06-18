@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DynamicTableModel, PagerModel } from '../models/dynamic-table.model';
+import { DynamicTableModel } from './models/dynamic-table.model';
 import { NzTableQueryParams } from 'ng-zorro-antd/table/src/table.types';
+import { DynamicHeaderModel } from './models/dynamic-header.model';
+import { DynamicDataModel } from './models/dynamic-data.model';
 
 @Component({
   selector: 'nz-dynamic-table',
@@ -9,15 +11,19 @@ import { NzTableQueryParams } from 'ng-zorro-antd/table/src/table.types';
 })
 export class NzDynamicTableComponent<T> {
   @Input() model = new DynamicTableModel<T>();
+  @Input() headers = new Array<DynamicHeaderModel>();
+  @Input() data = new Array<DynamicDataModel<T>>();
 
-  @Input() headers!: string[];
-  @Input() data!: any[];
   @Output() onPageIndexChange: EventEmitter<number> = new EventEmitter();
   @Output() onPageSizeChange: EventEmitter<number> = new EventEmitter();
   @Output() onCurrentPageDataChange: EventEmitter<readonly any[]> =
     new EventEmitter();
   @Output() onQueryParamsChange: EventEmitter<NzTableQueryParams> =
     new EventEmitter();
+  @Output() onThHeaderCheckedChange: EventEmitter<{
+    event: boolean;
+    header: DynamicHeaderModel;
+  }> = new EventEmitter();
 
   pageIndexChange(index: number) {
     this.onPageIndexChange.emit(index);
@@ -35,15 +41,9 @@ export class NzDynamicTableComponent<T> {
     this.onQueryParamsChange.emit(params);
   }
 
-  ngOnInit() {
-    console.log('------data', ...this.data);
-    for (const iterator of this.data) {
-      console.log(iterator);
-      for (const header of this.headers) {
-        console.log('------header', header);
-        console.log('------iterator', iterator);
-        console.log('------', iterator[header]);
-      }
-    }
+  headerCheckedChange(event: boolean, header: DynamicHeaderModel) {
+    this.onThHeaderCheckedChange.emit({ event, header });
   }
+
+  ngOnInit() {}
 }

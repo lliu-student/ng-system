@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PagerModel } from './common-ui/models/dynamic-table.model';
+import { PagerModel } from './common-ui/nz-dynamic-table/models/dynamic-table.model';
 
 @Component({
   selector: 'app-root',
